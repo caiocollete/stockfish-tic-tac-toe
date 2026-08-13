@@ -1,6 +1,7 @@
-#define SIZE 3
+#define SIZE 9
 
-char board[SIZE][SIZE] = {{0, 0, 0}, 
-                          {0, 0, 0}, 
-                          {0, 0, 0}};
+char board[SIZE] = {0, 0, 0, 
+                    0, 0, 0, 
+                    0, 0, 0};
+                    
 char LAST_PLAYER = 'x';
