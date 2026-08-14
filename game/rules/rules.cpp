@@ -1,6 +1,6 @@
 #include "rules.h"
 
-char canPlay(int pos, char player){    
+char canPlay(char board[], int pos, char player){    
     if(LAST_PLAYER == player){
         return 0;
     }
@@ -11,7 +11,7 @@ char canPlay(int pos, char player){
     return 1;
 }
 
-char wins(){
+char wins(char board[]){
     
     for(int i = 0; i < 3; i++){
         if(board[i] == board[i+3] && board[i+3] == board[i+6] && board[i] != 0){
@@ -30,6 +30,17 @@ char wins(){
     }
     if(board[2] == board[4] && board[4] == board[6] && board[0] != 0){
         return board[2];
+    }
+
+    int isDraw = 0;
+    for(int i = 0; i < SIZE; i++){
+        if(board[i] != 0){
+            isDraw++;
+        }
+    }
+
+    if(isDraw == SIZE){
+        return 'd'; // 'd' for draw
     }
 
     return 0;
