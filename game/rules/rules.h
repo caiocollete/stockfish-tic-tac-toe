@@ -1,3 +1,3 @@
 #define SIZE 9
       
-char LAST_PLAYER = 'x';
+char LAST_PLAYER = 'o';

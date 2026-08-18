@@ -10,7 +10,7 @@ int main(){
     drawBoard(board);
     while(opt != -1){   
         if(LAST_PLAYER == 'x'){
-            std::cout << "Player o's turn." << std::endl;
+            std::cout << "Player o's turn.\n" << std::endl;
             int availableMoves;
             for(int i = 0; i < SIZE; i++){
                 if(board[i] == 0){
@@ -25,9 +25,13 @@ int main(){
             }
         }
         else{
-            std::cout << "Player x's turn." << std::endl;
+            std::cout << "Player x's turn.\n" << std::endl;
             std::cout << "Choose your move: (0-8)\n" << std::endl;
             scanf("%d", &opt);
+            if(opt < 0 || opt > 8 || board[opt] != 0){
+                std::cout << "Invalid move. Try again.\n" << std::endl;
+                continue;
+            }
             makeMove(board, opt, 'x');
             LAST_PLAYER = 'x';
         }
@@ -35,11 +39,11 @@ int main(){
         drawBoard(board);
         char winner = wins(board);
         if(winner != 0 && winner != 'd'){
-            std::cout << "Player " << winner << " wins!" << std::endl;
+            std::cout << (winner == 'x'? "Player" : "Computer") << " wins!\n" << std::endl;
             opt = -1;
         }
         if(winner == 'd'){
-            std::cout << "It's a draw!" << std::endl;
+            std::cout << "It's a draw!\n" << std::endl;
             opt = -1;
         }
     }
